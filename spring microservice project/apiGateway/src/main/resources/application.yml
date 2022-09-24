@@ -1,0 +1,15 @@
+server:
+  port: 8999
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: user_services
+        uri: http://localhost:9000/
+        predicates:
+        - Path=/user/**
+      - id: contact_services
+        uri: http://localhost:9001/
+        predicates:
+        - Path=/contact/**
